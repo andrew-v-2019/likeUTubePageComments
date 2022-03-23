@@ -1,4 +1,7 @@
-function scrollBottom() { window.scroll(0, window.scrollY + 1000);}
+function scrollBottom() { 
+  window.scroll(0, window.scrollY + 1000);
+}
+
 function expandComments() {
     let moreBtns = document.getElementsByClassName('more-button');
     let moreBtnsArray = Array.from(moreBtns).filter(b => {
@@ -15,6 +18,8 @@ function expandComments() {
    setTimeout(() => { }, 1000);
    moreBtnsArray.forEach(b => b.click());
 }
+
+
 function getLikeBtns() {
     let buttons = document.getElementsByClassName('yt-icon-button');
     let btnsArray = Array.from(buttons).filter(b => {
@@ -22,6 +27,7 @@ function getLikeBtns() {
     });
     return btnsArray;
 }
+
 function likePageComments() {
     let counter = 0;
     let btnsArray = getLikeBtns();
@@ -31,6 +37,7 @@ function likePageComments() {
     }
     return counter;
 }
+
 function likeVideo() {
     let buttons = document.getElementsByClassName('yt-icon-button');
     let btn = Array.from(buttons).find(b => {
@@ -38,10 +45,14 @@ function likeVideo() {
     });
     if (btn) btn.click(); 
 }
+
 function scrollToComments() {
     let commentsBlock = document.querySelector('ytd-item-section-renderer#sections.style-scope.ytd-comments');
-    if (commentsBlock) {  commentsBlock.scrollIntoView()  }
+    if (commentsBlock) {  
+         commentsBlock.scrollIntoView() 
+     }
 }
+
 function process() {
     likeVideo();
     scrollToComments();
@@ -57,4 +68,5 @@ function process() {
 
     }, 500);
 }
+
 process();
